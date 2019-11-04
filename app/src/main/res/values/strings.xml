@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TareasKotlin</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog_fire_missiles">Fire Missiles</string>
+    <string name="fire">fuego</string>
+    <string name="cancel">cancela</string>
+</resources>
