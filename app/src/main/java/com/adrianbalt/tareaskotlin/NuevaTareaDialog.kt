@@ -14,16 +14,18 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
+import kotlinx.android.synthetic.main.fragment_nueva_tarea_dialog.*
 
 class NuevaTareaDialog : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return activity?.let {
+        var dialogInput = activity?.let {
             // Use the Builder class for convenient dialog construction
             val builder = AlertDialog.Builder(it)
-            val inflater:LayoutInflater = requireActivity().layoutInflater;
-            val view:View = inflater.inflate(R.layout.fragment_nueva_tarea_dialog, null)
+            val inflater: LayoutInflater = requireActivity().layoutInflater;
+            val view: View = inflater.inflate(R.layout.fragment_nueva_tarea_dialog, null)
             val editText2 = view.findViewById<EditText>(R.id.editText2)
+            editText2.requestFocus()
             builder
                 .setView(view)
                 .setMessage(R.string.dialog_fire_missiles)
@@ -38,11 +40,9 @@ class NuevaTareaDialog : DialogFragment() {
             // Create the AlertDialog object and return it
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
-    }
+        dialogInput.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?){
-        super.onActivityCreated(savedInstanceState)
-        dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+        return dialogInput
     }
 
 }
